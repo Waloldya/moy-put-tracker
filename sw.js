@@ -1,6 +1,6 @@
 'use strict';
-const CACHE='moy-put-workout-v2.0.0';
-const ASSETS=['./','./index.html','./style.css','./life.css','./data.js','./tracker-core.js','./food-provider.js','./life-ui.js','./app.js','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-180.png','./foods/index.json'];
+const VERSION='2.0.1',CACHE='moy-put-workout-v'+VERSION;
+const ASSETS=['./','./index.html','./style.css','./life.css','./data.js','./tracker-core.js','./food-provider.js','./life-ui.js','./app.js','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-180.png','./foods/index.json'].map(url=>/\.(js|css)$/.test(url)?url+'?v='+VERSION:url);
 self.addEventListener('install',event=>{event.waitUntil((async()=>{
  const cache=await caches.open(CACHE);await cache.addAll(ASSETS);
  const index=await (await cache.match('./foods/index.json')).json();
